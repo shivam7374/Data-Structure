@@ -47,7 +47,17 @@ void build(node *&head)
 	}
 	return ;
 }
-
+node *midpoint(node *head)
+{
+	node * slow=head;
+	node* fast=head;
+	while(fast->next!=NULL && fast->next->next!=NULL)
+	{
+		fast=fast->next->next;
+		slow=slow->next;
+	}
+	return slow;
+}
 
 void print(node *head )
 {
@@ -72,5 +82,8 @@ int main()
 	insertattail(head,9);
 	build(head);
 	print(head);
+	node *c=midpoint(head);
+	cout<<endl<<c->data<<endl;
+	
 return 0;
 }
