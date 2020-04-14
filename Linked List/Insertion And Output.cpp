@@ -36,6 +36,18 @@ void insertattail(node* &head,int n)
 	temp->next=NULL;
 	return;
 }
+void build(node *&head)
+{
+	int n;
+	cin>>n;
+	while(n!=-1)
+	{
+		insertattail(head,n);
+		cin>>n;
+	}
+	return ;
+}
+
 
 void print(node *head )
 {
@@ -58,6 +70,7 @@ int main()
 	insertattail(head,7);
 	insertattail(head,8);
 	insertattail(head,9);
+	build(head);
 	print(head);
 return 0;
 }
