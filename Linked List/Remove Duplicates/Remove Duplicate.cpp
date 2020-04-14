@@ -47,19 +47,13 @@ void removeduplicate(node *&head)
 	node *temp1=head;
 	node *prev=NULL;
 	while( temp1!=NULL)
-	{	int flag=0;	
-		node *temp=head;
-		while(temp!=temp1)
-			{
-				if(temp->data==temp1->data)
+	{
+					if(search(head,temp1->data,temp1))
 					{	
-						flag=1;
 						prev->next=temp1->next;
-						break;
-					}
-				temp=temp->next;
-			}
-		if(flag==0)
+				}
+				
+		else
 			{
 				prev=temp1;
 			}
@@ -67,12 +61,39 @@ void removeduplicate(node *&head)
 	}
 	return;
 }
+
+// void removeduplicate(node *&head)
+// {	
+// 	node *temp1=head;
+// 	node *prev=NULL;
+// 	while( temp1!=NULL)
+// 	{	int flag=0;	
+// 		node *temp=head;
+// 		while(temp!=temp1)
+// 			{
+// 				if(temp->data==temp1->data)
+// 					{	
+// 						flag=1;
+// 						prev->next=temp1->next;
+// 						break;
+// 					}
+// 				temp=temp->next;
+// 			}
+// 		if(flag==0)
+// 			{
+// 				prev=temp1;
+// 			}
+// 		temp1=temp1->next;
+// 	}
+// 	return;
+// }
 int main()
 {
 	// cout<<"Hello";
 	node* head=NULL;
 	insertathead(head,1);
 	insertathead(head,1);
+	insertathead(head,2);
 	insertathead(head,1);
 	insertathead(head,1);
 	insertathead(head,2);
@@ -82,6 +103,7 @@ int main()
 	insertathead(head,3);
 	insertathead(head,3);
 	insertathead(head,3);
+	insertathead(head,2);
 	print(head);
 	removeduplicate(head);
 	print(head);
