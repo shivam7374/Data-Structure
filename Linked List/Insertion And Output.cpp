@@ -93,6 +93,29 @@ node* merge(node *head1,node *head2)
 
 	return c;
 }
+node * mergesort(node *head)
+{
+	//base case
+	if(head==NULL || head->next==NULL)
+	{
+		return head;
+	}
+	node *mid=midpoint(head);
+
+	node *a=head;
+	node *b=mid->next;
+	mid->next=NULL;
+
+	// seperate to linkedlists
+	a=mergesort(a);
+	b=mergesort(b);
+
+
+	//merge a and b
+	node* c=merge(a,b);
+	return c;
+
+}
 
 int main()
 {
@@ -115,6 +138,8 @@ int main()
 	cout<<endl<<endl;
 	node* mer=merge(head,head1);
 	cout<<endl<<print(mer)<<endl;
+	node * mergesor=mergesort(head);
+	print(mergesor);
 	
 return 0;
 }
