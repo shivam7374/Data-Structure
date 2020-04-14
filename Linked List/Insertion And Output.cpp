@@ -33,7 +33,10 @@ int main()
 {
 
 	node *head=NULL;
-	build(head);
+	insertathead(head,5);
+	insertathead(head,3);
+	insertathead(head,2);
+	insertathead(head,1);
 	print(head);
 return 0;
 }
