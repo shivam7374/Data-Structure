@@ -69,6 +69,31 @@ void print(node *head )
 	cout<<head->data<<endl;
 	return;
 }
+node* merge(node *head1,node *head2)
+{
+	node *c;
+	if(head1==NULL)
+	{
+		return head2;
+	}
+	else if(head2==NULL)
+	{
+		return head1;
+	}
+	if( (head1->data) >= (head2->data) )
+		{
+			c=head2;
+			c->next=merge(head1,head2->next);
+		}
+		else
+		{
+			c=head1;
+			c->next=merge(head1->next,head2);
+		}
+
+	return c;
+}
+
 int main()
 {
 
@@ -84,6 +109,12 @@ int main()
 	print(head);
 	node *c=midpoint(head);
 	cout<<endl<<c->data<<endl;
+	node * head1=NULL;
+	build(head1);
+	print(head1);
+	cout<<endl<<endl;
+	node* mer=merge(head,head1);
+	cout<<endl<<print(mer)<<endl;
 	
 return 0;
 }
