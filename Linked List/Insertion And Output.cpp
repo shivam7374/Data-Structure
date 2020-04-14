@@ -19,6 +19,24 @@ void insertathead(node *&head,int n)
 	head=temp;
 	return;
 }
+void insertattail(node* &head,int n)
+{
+	node*temp=new node(n);
+	if(head==NULL)
+	{
+		head=temp;
+		return;
+	}
+	node*temp1=head;
+	while(temp1->next!=NULL)
+	{
+		temp1=temp1->next;
+	}
+	temp1->next=temp;
+	temp->next=NULL;
+	return;
+}
+
 void print(node *head )
 {
 	while( (head->next)!=NULL )
@@ -37,6 +55,9 @@ int main()
 	insertathead(head,3);
 	insertathead(head,2);
 	insertathead(head,1);
+	insertattail(head,7);
+	insertattail(head,8);
+	insertattail(head,9);
 	print(head);
 return 0;
 }
