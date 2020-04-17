@@ -116,6 +116,18 @@ node * mergesort(node *head)
 	return c;
 
 }
+node *recreverse(node *head)
+{
+	if(head==NULL || head->next==NULL)
+	{
+		return head;
+	}
+	node *smallhead=recreverse(head->next);
+	node *current=head;
+	current->next->next=current;
+	current->next=NULL;
+	return smallhead;
+}
 
 int main()
 {
@@ -128,18 +140,19 @@ int main()
 	insertattail(head,7);
 	insertattail(head,8);
 	insertattail(head,9);
-	build(head);
+	// build(head);
 	print(head);
 	node *c=midpoint(head);
 	cout<<endl<<c->data<<endl;
-	node * head1=NULL;
-	build(head1);
-	print(head1);
+	// node * head1=NULL;
+	// build(head1);
+	// print(head1);
 	cout<<endl<<endl;
-	node* mer=merge(head,head1);
-	cout<<endl<<print(mer)<<endl;
+	// node* mer=merge(head,head1);
+	// print(mer);
 	node * mergesor=mergesort(head);
 	print(mergesor);
+	print(recreverse(mergesor));
 	
 return 0;
 }
