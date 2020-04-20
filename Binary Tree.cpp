@@ -58,6 +58,16 @@ void printposttree(node* root)
 	cout<<root->data<<" ";
 	return;
 }
+int height(node* root)
+{
+	if(root==NULL)
+	{
+		return 0;
+	}
+	int h1=height(root->left);
+	int h2=height(root->right);
+	return(max(h1,h2)+1);
+}
 
 int main()
 {	
@@ -68,8 +78,8 @@ int main()
 	cout<<endl;
 	printposttree(root);
 	cout<<endl;
-	// int h=height(root);
-	// cout<<"Height : "<<h<<endl;
+	int h=height(root);
+	cout<<"Height : "<<h<<endl;
 	// cout<<"Enter the kth level : ";
 	// int k;
 	// cin>>k;
