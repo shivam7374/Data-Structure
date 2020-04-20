@@ -25,10 +25,22 @@ node* buildtree()
 	root->right=buildtree();
 	return root;
 }
+void printpretree(node* root)
+{
+	if(root==NULL)// do not use root->data==-1 as -1 is not stored anywhere it is just for identification of null
+	{
+		return;
+	}
+	cout<<root->data<<" ";
+	printpretree(root->left);
+	printpretree(root->right);
+	return;
+}
+
 int main()
 {	
 	node*root=buildtree();
-	// printpretree(root);
+	printpretree(root);
 	// cout<<endl;
 	// printintree(root);
 	// cout<<endl;
