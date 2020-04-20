@@ -83,6 +83,17 @@ void printklevel(node *root,int k)
 	printklevel(root->right,k-1);
 	return;
 }
+void printalllevels(node *root)
+{
+	int h=height(root);
+	for(int i=1;i<=h;i++)
+	{
+		printklevel(root,i);
+		cout<<endl;
+	}
+	cout<<endl;
+	return;
+}
 
 int main()
 {	
@@ -101,8 +112,8 @@ int main()
 	cout<<endl;
 	printklevel(root,k);
 	cout<<endl;
-	// printalllevels(root);
-	// cout<<endl;
+	printalllevels(root);
+	cout<<endl;
 	// cout<<count(root)<<endl;
 	return 0;
 }
