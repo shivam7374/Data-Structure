@@ -36,14 +36,25 @@ void printpretree(node* root)
 	printpretree(root->right);
 	return;
 }
+void printintree(node* root)
+{
+	if(root==NULL)
+	{
+		return;
+	}
+	printintree(root->left);
+	cout<<root->data<<" ";
+	printintree(root->right);
+	return;
+}
 
 int main()
 {	
 	node*root=buildtree();
 	printpretree(root);
-	// cout<<endl;
-	// printintree(root);
-	// cout<<endl;
+	cout<<endl;
+	printintree(root);
+	cout<<endl;
 	// printposttree(root);
 	// cout<<endl;
 	// int h=height(root);
