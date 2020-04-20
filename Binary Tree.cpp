@@ -28,22 +28,22 @@ node* buildtree()
 int main()
 {	
 	node*root=buildtree();
-	printpretree(root);
-	cout<<endl;
-	printintree(root);
-	cout<<endl;
-	printposttree(root);
-	cout<<endl;
-	int h=height(root);
-	cout<<"Height : "<<h<<endl;
-	cout<<"Enter the kth level : ";
-	int k;
-	cin>>k;
-	cout<<endl;
-	printklevel(root,k);
-	cout<<endl;
-	printalllevels(root);
-	cout<<endl;
-	cout<<count(root)<<endl;
+	// printpretree(root);
+	// cout<<endl;
+	// printintree(root);
+	// cout<<endl;
+	// printposttree(root);
+	// cout<<endl;
+	// int h=height(root);
+	// cout<<"Height : "<<h<<endl;
+	// cout<<"Enter the kth level : ";
+	// int k;
+	// cin>>k;
+	// cout<<endl;
+	// printklevel(root,k);
+	// cout<<endl;
+	// printalllevels(root);
+	// cout<<endl;
+	// cout<<count(root)<<endl;
 	return 0;
 }
