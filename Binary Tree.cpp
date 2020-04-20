@@ -94,6 +94,16 @@ void printalllevels(node *root)
 	cout<<endl;
 	return;
 }
+int count(node *root)
+{
+	if(root==NULL)
+	{
+		return 0;
+	}
+	int c1=count(root->left);
+	int c2=count(root->right);
+	return(c1+c2+1);
+}
 
 int main()
 {	
@@ -114,6 +124,6 @@ int main()
 	cout<<endl;
 	printalllevels(root);
 	cout<<endl;
-	// cout<<count(root)<<endl;
+	cout<<count(root)<<endl;
 	return 0;
 }
