@@ -68,6 +68,21 @@ int height(node* root)
 	int h2=height(root->right);
 	return(max(h1,h2)+1);
 }
+void printklevel(node *root,int k)
+{
+	if(root==NULL)
+	{
+		return;
+	}
+	if(k==1)
+	{
+		cout<<root->data<<" ";
+		return;
+	}
+	printklevel(root->left,k-1);
+	printklevel(root->right,k-1);
+	return;
+}
 
 int main()
 {	
@@ -80,12 +95,12 @@ int main()
 	cout<<endl;
 	int h=height(root);
 	cout<<"Height : "<<h<<endl;
-	// cout<<"Enter the kth level : ";
-	// int k;
-	// cin>>k;
-	// cout<<endl;
-	// printklevel(root,k);
-	// cout<<endl;
+	cout<<"Enter the kth level : ";
+	int k;
+	cin>>k;
+	cout<<endl;
+	printklevel(root,k);
+	cout<<endl;
 	// printalllevels(root);
 	// cout<<endl;
 	// cout<<count(root)<<endl;
