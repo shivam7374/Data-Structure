@@ -47,6 +47,17 @@ void printintree(node* root)
 	printintree(root->right);
 	return;
 }
+void printposttree(node* root)
+{
+	if(root==NULL)
+	{
+		return;
+	}
+	printposttree(root->left);
+	printposttree(root->right);
+	cout<<root->data<<" ";
+	return;
+}
 
 int main()
 {	
@@ -55,8 +66,8 @@ int main()
 	cout<<endl;
 	printintree(root);
 	cout<<endl;
-	// printposttree(root);
-	// cout<<endl;
+	printposttree(root);
+	cout<<endl;
 	// int h=height(root);
 	// cout<<"Height : "<<h<<endl;
 	// cout<<"Enter the kth level : ";
