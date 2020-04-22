@@ -126,6 +126,19 @@ int count(node *root)
 	int c2=count(root->right);
 	return(c1+c2+1);
 }
+void printsumtree(node* root)
+{
+	if(root==NULL)// do not use root->data==-1 as -1 is not stored anywhere it is just for identification of null
+	{
+		return;
+	}
+	// cout<<root->data<<" ";
+	cout<<sumgreaternumbers(glob,root->data)<<"  **  ";
+	printpretree(root->left);
+	printpretree(root->right);
+	return;
+}
+
 
 int main()
 {	
@@ -137,7 +150,7 @@ int main()
 	cout<<endl;
 	printposttree(root);
 	cout<<endl;
-	cout<<sumgreaternumbers(root,root->data)<<endl;
+	// cout<<sumgreaternumbers(root,root->data)<<endl;
 	int h=height(root);
 	cout<<"Height : "<<h<<endl;
 	cout<<"Enter the kth level : ";
