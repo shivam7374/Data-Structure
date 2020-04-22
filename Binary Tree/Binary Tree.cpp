@@ -130,6 +130,7 @@ int count(node *root)
 int main()
 {	
 	node*root=buildtree();
+	glob=root;
 	printpretree(root);
 	cout<<endl;
 	printintree(root);
