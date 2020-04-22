@@ -151,7 +151,7 @@ int main()
 	printposttree(root);
 	cout<<endl;
 	// cout<<sumgreaternumbers(root,root->data)<<endl;
-	cout<<printsumtree(glob)<<endl;
+	printsumtree(glob);
 	int h=height(root);
 	cout<<"Height : "<<h<<endl;
 	cout<<"Enter the kth level : ";
