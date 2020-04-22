@@ -11,7 +11,7 @@ node(int data){
 	right=NULL;
 }
 };
-int sumgreaternumbers(node *root,int d)
+int sumgreaternumbers(node *root,int d)// To find the sum of all numbers greater than any node 
 {
 	if(root==NULL)
 	{
