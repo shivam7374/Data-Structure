@@ -11,6 +11,26 @@ node(int data){
 	right=NULL;
 }
 };
+int sumgreaternumbers(node *root,int d)
+{
+	if(root==NULL)
+	{
+		return 0;
+	}
+	int s;
+	if( (root->data)>d )
+	{
+		 s=(root->data);
+	}
+	else{
+		s=0;
+	}
+	int s1=sumgreaternumbers(root->left,d);
+	int s2=sumgreaternumbers(root->right,d);
+
+	return (s+s1+s2);
+}
+
 node* buildtree()
 {
 	cout<<"Enter : ";
