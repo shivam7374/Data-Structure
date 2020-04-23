@@ -1,72 +1,85 @@
-#include<iostream> 
-#include <list> 
-using namespace std; 
+/******************************************************************************
 
-class Graph 
-{ 
-	int Vertices; 
-	list<int> *adj; 
-public: 
-	Graph(int Vertices){ 
-	this->Vertices = Vertices; 
-	adj = new list<int>[Vertices]; 
-}  
-	void AddEdge(int v, int w){ 
-	adj[v].push_back(w); 
-} 
- 
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
 
-	void BFS(int s){ 
-	bool *visited = new bool[Vertices]; 
-	for(int i = 0; i < Vertices; i++) 
-		{
-			visited[i] = false;
-		}
-
-	list<int> q; 
-
-	visited[s] = true; 
-	q.push_back(s); 
-	
-	list<int>::iterator i; 
-
-	while(!q.empty()) 
-	{ 
-		s = q.front(); 
-		cout << s << " "; 
-		q.pop_front(); 
-
-		for (i = adj[s].begin(); i != adj[s].end(); ++i) 
-		{ 
-			if (!visited[*i]) 
-			{ 
-				visited[*i] = true; 
-				q.push_back(*i); 
-			} 
-		} 
-	} 
-} 
- 
-}; 
-
-int main() 
-{ 
-	int n;
-	cout<<"Enter the number of vertices : ";
-	cin>>n;
-	Graph gr(n);
-	int a;
-	cout<<endl<<"Enter the Number of edges to be entered : "; 
-	cin>>a;
-	for(int i=0;i<a;i++)
-	{
-		int x,y;
-		cin>>x>>y;
-		gr.AddEdge(x,y);
-	}
-
-	cout << "BFS Traversal of the Graph\n"; 
-	gr.BFS(0); 
-	cout<<endl;
-	return 0; 
-} 
+*******************************************************************************/
+#include <iostream>
+using namespace std;
+#include<bits/stdc++.h>
+#include<queue>
+#include<vector>
+void print(int** edges,int n,bool* visited,vector<vector<int>*>* ans)
+{
+  queue<int> q ;
+  vector<int>* v ;
+  for(int i=0;i<n;i++)
+  {
+     if(!visited[i])
+     {
+       q.push(i) ;
+       visited[i]=true ;
+       v=new vector<int>() ;
+     }
+     else
+        continue ;
+     while(q.size()!=0)
+    {
+    int f=q.front() ;
+    q.pop() ;
+    v->push_back(f) ;
+    for(int i=0;i<n;i++)
+    {
+      if(i==f)
+          continue ;
+      if(edges[f][i]==1 && visited[i]==false)
+      {
+         visited[i]=true ;
+         q.push(i) ;
+      }
+    }
+   }
+   ans->push_back(v) ;
+  }
+}
+int main() {
+ int v,e ;
+ cout << "Enter no of vertices in the graph : " ;
+ cin >> v ;
+ cout << "Enter no of edges in the graph : " ;
+ cin >> e ;
+ int** edges=new int*[v] ;
+ for(int i=0;i<v;i++)
+ {
+  edges[i]=new int[v] ;
+  for(int j=0;j<v;j++)
+     edges[i][j]=0 ;
+ }
+ for(int i=0;i<e;i++)
+ {
+  int f,s ;
+  cout << "Enter first and second vertex of the edge : " << endl ;
+  cin >> f >> s ;
+  edges[f][s]=1 ;
+  edges[s][f]=1 ;
+ }
+ bool* visited=new bool[v] ;
+ for(int i=0;i<v;i++)
+ {
+  visited[i]=false ;
+ }
+ vector<vector<int>*>* ans=new vector<vector<int>*>() ;
+ print(edges,v,visited,ans) ;
+ cout << endl << "Printing the graph by BFS transversal : " << endl ;
+ for(int i=0;i<ans->size();i++)
+ {  sort(ans->at(i)->begin(),ans->at(i)->end()) ;
+    for(int j=0;j<ans->at(i)->size();j++)
+    {
+      cout << ans->at(i)->at(j) << " " ;
+    }
+    cout << endl ;
+ }
+ return 0;
+}
